@@ -26,13 +26,13 @@ variable "replica_region" {
 }
 
 provider "aws" {
-  version = "~> 1.2"
+  version = "~> 1.4"
   alias   = "source"
   region  = "${var.region}"
 }
 
 provider "aws" {
-  version = "~> 1.2"
+  version = "~> 1.4"
   alias   = "destination"
   region  = "${var.replica_region}"
 }
