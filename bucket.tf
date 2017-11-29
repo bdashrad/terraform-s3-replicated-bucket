@@ -3,12 +3,6 @@ variable "bucket" {
   description = "Name of the S3 bucket to create"
 }
 
-variable "environment" {
-  type        = "string"
-  description = "Name of environment (qa/staging/prod)"
-  default     = ""
-}
-
 variable "log_bucket" {
   type        = "string"
   description = "Name of bucket to use for logging"
@@ -63,7 +57,6 @@ resource "aws_s3_bucket" "replica" {
   }
 
   tags {
-    Environment = "${var.environment}"
     Name        = "${var.bucket}-replica"
     terraform   = "true"
   }
@@ -98,7 +91,6 @@ resource "aws_s3_bucket" "source" {
   }
 
   tags {
-    Environment = "${var.environment}"
     Name        = "${var.bucket}"
     terraform   = "true"
   }
